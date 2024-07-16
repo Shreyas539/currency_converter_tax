@@ -36,11 +36,21 @@ let convertCurrency = () => {
       .then((resp) => resp.json())
       .then((data) => {
         let fromExchangeRate = data.conversion_rates[fromCurrency];
+        
         let toExchangeRate = data.conversion_rates[toCurrency];
+
+        // console.log("From ExchangeRate" , fromExchangeRate);
+        // console.log("TO Exchange rate" , toExchangeRate);
+        // console.log(fromCurrency);
+        dataFromApi.innerHTML = `${1} ${fromCurrency}`;
+
+        // fromCu.innerHTML = `${fromCurrency}`;
+
         let convertedAmount = (amount / fromExchangeRate) * toExchangeRate;
+        multiPlied.innerHTML = `${convertedAmount.toFixed(2)}`
         //console.log("converted amt:",convertedAmount);
         let finalTaxedAmount = (convertedAmount*1.5)/100;
-        TaxedAmt.innerHTML = `${finalTaxedAmount}`
+        TaxedAmt.innerHTML = `${finalTaxedAmount.toFixed(2)}`
        // console.log("Taxed Amount",finalTaxedAmount);
         const ffinalAmt = convertedAmount-finalTaxedAmount;
        // console.log("Final amount",ffinalAmt);
