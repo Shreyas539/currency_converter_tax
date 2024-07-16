@@ -18,19 +18,40 @@
         <h1 class="app-title">Currency Converter</h1>
       </div>
       <label for="amount">Amount:</label>
-      <input type="number" id="amount" value="100" />
+      <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
       <div class="dropdowns">
-        <select id="from-currency-select"></select>
+        <select id="from-currency-select" onkeyup="convertCurrency()" ></select>
         <select id="to-currency-select"></select>
-      </div>
-      <div class="tax-styles">
-        <p id="TaxedAmt"></p>
-        <p>Flat 1.5% TAX</p>
       </div>
 
       <div class="tax-styles">
-        <p>0</p>
-        <p>Hidden charges</p>
+        <div class="groupOfElemenst">
+            <img src="cancel.png" alt="">
+            <p id="dataFromApi"></p>
+            <p id="fromCu"></p>
+            <img src="equal.png" alt="">
+        </div>
+        <p id="multiPlied"></p>
+      </div>
+
+      
+      
+      <div class="tax-styles">
+        <div class="groupOfElemenst">
+            <img src="minus.png" alt="">
+            <p id="TaxedAmt"></p>
+            
+        </div>
+        <p >Flat 1.5% TAX</p>
+      </div>
+      
+
+      <div class="tax-styles">
+        <div class="groupOfElemenst">
+            <img src="minus.png" alt="">
+            <p>0</p>
+        </div>
+        <p>Hidden charges</p> 
       </div>
         
       
