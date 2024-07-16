@@ -42,13 +42,15 @@ let convertCurrency = () => {
         // console.log("From ExchangeRate" , fromExchangeRate);
         // console.log("TO Exchange rate" , toExchangeRate);
         // console.log(fromCurrency);
-        dataFromApi.innerHTML = `${1} ${fromCurrency}`;
 
         // fromCu.innerHTML = `${fromCurrency}`;
 
         let convertedAmount = (amount / fromExchangeRate) * toExchangeRate;
         multiPlied.innerHTML = `${convertedAmount.toFixed(2)}`
-        //console.log("converted amt:",convertedAmount);
+        // let valueOfCurrency = 
+        dataFromApi.innerHTML = `${1} ${fromCurrency} ${(convertedAmount/amount).toFixed(2)}`;
+
+        //console.log("1 usd :",convertedAmount/amount);
         let finalTaxedAmount = (convertedAmount*1.5)/100;
         TaxedAmt.innerHTML = `${finalTaxedAmount.toFixed(2)}`
        // console.log("Taxed Amount",finalTaxedAmount);
