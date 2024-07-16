@@ -12,12 +12,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <div class="container">
     <div class="wrapper">
       <div class="app-details">
         <!-- <img src="app-icon.svg" class="app-icon" /> -->
-        <h1 class="app-title">Currency Converter</h1>
+        <!-- <h1 class="app-title">Currency Converter</h1> -->
       </div>
-      <label for="amount">Amount:</label>
+      <label for="amount">Client pays</label>
       <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
       <div class="dropdowns">
         <select id="from-currency-select" onkeyup="convertCurrency()" ></select>
@@ -26,32 +27,42 @@
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="cancel.png" alt="">
+            <img src="/assets/multiply.png" alt="">
             <p id="dataFromApi"></p>
             <p id="fromCu"></p>
-            <img src="equal.png" alt="">
+            <!-- <img src="/assets/equal.png" alt=""> -->
         </div>
-        <p id="multiPlied"></p>
+        <!-- <p id="multiPlied"></p> -->
       </div>
+
+      <p class="red-line"></p>
+
+      <div class="tax-styles">
+        <div class="groupOfElemenst">
+            <img src="/assets/equal.png" alt="">
+            <p id="multiPlied"></p>
+        </div>
+        
+      </div>
+      
 
       
       
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="minus.png" alt="">
+            <img src="/assets/minus.png" alt="">
             <p id="TaxedAmt"></p>
-            
         </div>
-        <p >Flat 1.5% TAX</p>
+        <p >Outworker 1.5% Fee</p>
       </div>
       
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="minus.png" alt="">
+            <img src="/assets/minus.png" alt="">
             <p>0</p>
         </div>
-        <p>Hidden charges</p> 
+        <p>FIRC, Forex, Hidden fee</p> 
       </div>
         
       
@@ -59,6 +70,7 @@
       <button id="convert-button">Convert</button>
       <label for="finalAmt" style="margin-top: 10px;">You will Receive,</label>
       <p id="result"></p>
+    </div>
     </div>
 
     <!-- Scipt With Array Of Supported Country Codes -->
