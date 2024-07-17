@@ -1,14 +1,20 @@
 //let api = `https://open.er-api.com/v6/latest/USD`
 
 let api = `https://v6.exchangerate-api.com/v6/9189bbdd60eed8749f331d14/latest/USD`;
+
 const fromDropDown = document.getElementById("from-currency-select");
 const toDropDown = document.getElementById("to-currency-select");
+
+
+
+
 
 //Create dropdown from the currencies array
 currencies.forEach((currency) => {
   const option = document.createElement("option");
   option.value = currency;
   option.text = currency;
+  option.img=currency;
   fromDropDown.add(option);
 });
 
@@ -48,8 +54,8 @@ let convertCurrency = () => {
         let convertedAmount = (amount / fromExchangeRate) * toExchangeRate;
         multiPlied.innerHTML = `${convertedAmount.toFixed(2)}`
         // let valueOfCurrency = 
-        dataFromApi.innerHTML = `${1} ${fromCurrency} ${(convertedAmount/amount).toFixed(2)}`;
-
+        dataFromApi.innerHTML = `  ${(convertedAmount/amount).toFixed(2)}`;
+        currencyRate.innerHTML = `${fromCurrency}/INR Google rate`
         //console.log("1 usd :",convertedAmount/amount);
         let finalTaxedAmount = (convertedAmount*1.5)/100;
         TaxedAmt.innerHTML = `${finalTaxedAmount.toFixed(2)}`
@@ -69,3 +75,8 @@ document
   .querySelector("#convert-button")
   .addEventListener("click", convertCurrency);
 window.addEventListener("load", convertCurrency);
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   createDropdownOptions();
+//   convertCurrency();
+// });
