@@ -18,21 +18,23 @@
         <!-- <img src="app-icon.svg" class="app-icon" /> -->
         <!-- <h1 class="app-title">Currency Converter</h1> -->
       </div>
-      <label for="amount">Client pays</label>
-      <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
-      <div class="dropdowns">
-        <select id="from-currency-select" onkeyup="convertCurrency()" ></select>
-        <select id="to-currency-select"></select>
+      <label for="amount" style="color: white; font-size: 20px;">Client pays</label>
+
+      <div class="dropdowns" >
+        <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
+        <select   id="from-currency-select" onchange="convertCurrency()" ></select>
+        <!-- <img style="width: 20px;" src="flag.png" alt=""> -->
+        <select id="to-currency-select" style="display: none;" onchange="convertCurrency()"></select>
       </div>
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
             <img src="/assets/multiply.png" alt="">
             <p id="dataFromApi"></p>
-            <p id="fromCu"></p>
+            <!-- <p id="fromCu"></p> -->
             <!-- <img src="/assets/equal.png" alt=""> -->
         </div>
-        <!-- <p id="multiPlied"></p> -->
+        <p id="currencyRate"></p>
       </div>
 
       <p class="red-line"></p>
@@ -60,6 +62,7 @@
       <div class="tax-styles">
         <div class="groupOfElemenst">
             <img src="/assets/minus.png" alt="">
+            
             <p>0</p>
         </div>
         <p>FIRC, Forex, Hidden fee</p> 
@@ -67,9 +70,15 @@
         
       
       
-      <button id="convert-button">Convert</button>
-      <label for="finalAmt" style="margin-top: 10px;">You will Receive,</label>
-      <p id="result"></p>
+      <button id="convert-button" style="display: none;">Convert</button>
+      <label for="finalAmt" style="margin-top: 10px; color: white;">You will Receive,</label>
+      
+      <div  class="resultWithFlag">
+        <img class="rupeeImg" src="assets/rupee.png" style="width: 25px;" alt="">
+        <p id="result" ></p>
+        <img class="indiaFlag" src="/assets/flag.png" alt="">
+      </div>
+    
     </div>
     </div>
 
