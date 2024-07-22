@@ -1,6 +1,6 @@
 //let api = `https://open.er-api.com/v6/latest/USD`
 
-let api = `https://v6.exchangerate-api.com/v6/9189bbdd60eed8749f331d14/latest/USD`;
+let api = `https://v6.exchangerate-api.com/v6/38d8ba504330c5ef77dd97b2/latest/USD`;
 
 const fromDropDown = document.getElementById("from-currency-select");
 const toDropDown = document.getElementById("to-currency-select");
