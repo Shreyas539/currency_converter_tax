@@ -1,11 +1,16 @@
 //let api = `https://open.er-api.com/v6/latest/USD`
 
-let api = `https://v6.exchangerate-api.com/v6/38d8ba504330c5ef77dd97b2/latest/USD`;
+let api = `https://v6.exchangerate-api.com/v6/3cdcf2ffad119960a25ff23f/latest/USD`;
 
 const fromDropDown = document.getElementById("from-currency-select");
 const toDropDown = document.getElementById("to-currency-select");
 
+const inputContainer = document.querySelector('.input-with-static-text');
 
+fromDropDown.addEventListener('change', function() {
+    const selectedCurrency = fromDropDown.value;
+    inputContainer.style.setProperty('--static-text', `"${selectedCurrency}:"`);
+});
 
 
 
@@ -36,12 +41,17 @@ let convertCurrency = () => {
   const fromCurrency = fromDropDown.value;
   const toCurrency = toDropDown.value;
 
+  const selectedCurrency = fromDropDown.value;
+  inputContainer.setAttribute('data-static-text', `${selectedCurrency}:`);
+  
+
   //If amount input field is not empty
   if (amount.length != 0 & amount>0) {
     fetch(api)
       .then((resp) => resp.json())
       .then((data) => {
         let fromExchangeRate = data.conversion_rates[fromCurrency];
+        
         
         let toExchangeRate = data.conversion_rates[toCurrency];
 
@@ -55,16 +65,15 @@ let convertCurrency = () => {
         multiPlied.innerHTML = `${convertedAmount.toFixed(2)}`
         // let valueOfCurrency = 
         dataFromApi.innerHTML = `  ${(convertedAmount/amount).toFixed(2)}`;
-        currencyRate.innerHTML = `${fromCurrency}/INR Google rate`
+        currencyRate.innerHTML = `${fromCurrency}/INR Market rate`
         //console.log("1 usd :",convertedAmount/amount);
         let finalTaxedAmount = (convertedAmount*1.5)/100;
         TaxedAmt.innerHTML = `${finalTaxedAmount.toFixed(2)}`
        // console.log("Taxed Amount",finalTaxedAmount);
         const ffinalAmt = convertedAmount-finalTaxedAmount;
        // console.log("Final amount",ffinalAmt);
-        result.innerHTML = `${ffinalAmt.toFixed(
-          2
-        )} ${toCurrency}`;
+        result.innerHTML = `${ffinalAmt.toFixed(2)} `;
+        toCurrencyAfterFlag.innerHTML = `${toCurrency}`
       });
   } else {
     alert("Please fill in the valid amount");
