@@ -2,17 +2,21 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Inter';
+    
     border: none;
     outline: none;
   }
-  /* body {
-    background-color: gray;
-  } */
+  body {
+    background-color: #A0C4F4;
+   
+
+  }
   .wrapper {
     width: 90%;
+    max-width: 34em;
+    height: 46%;
     
-    max-width: 25em;
     background-color: #3180E8;
     position: absolute;
     transform: translate(-50%, -50%);
@@ -21,6 +25,12 @@
     padding: 2em;
     border-radius: 0.8em;
   }
+
+  /* .container{
+    width: calc(90%+90px);
+    position: relative;
+    background-image: url(/assets/back.png);
+  } */
   .app-details {
     display: flex;
     align-items: center;
@@ -38,7 +48,7 @@
     display: block;
     font-weight: 600;
   }
-  input#amount {
+  /* input#amount {
     font-weight: 400;
     font-size: 1.5em;
     display: block;
@@ -47,24 +57,57 @@
     border-radius: 30px;
     /* border-bottom: 2px solid #02002c; */
     /* color: white; */
-    color: black;
+    /* color: black; */ 
     /* margin-bottom: 2em;
     padding: 0.5em; */
+/*     
+  } */
+
+.input-with-static-text {
+    position: relative;
     
-  }
-  input#amount:focus {
+}
+
+ .input-with-static-text::before {
+    content: var(--static-text,"USD");
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    font-weight: 700;
+    font: bold;
+    font-size: 20px;
+    transform: translate(20%,-50%);
+    pointer-events: none;
+    color: black; /* Optional: style the static text */
+ } 
+
+.input-with-static-text input {
+    padding-left: 70px; /* Adjust based on the width of the static text */
+    width: 90%;
+    color: #02002c;
+    font-weight: 500;
+    font-size: 25px;
+    font-weight: bold;
+    padding-block: 15px;
+    border-radius: 25px;
+} 
+
+
+
+
+input#amount:focus {
     color: black;
     border-color: #9873fe;
   }
-  .dropdowns {
+.dropdowns {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1em;
+    gap: 1px;
     margin-top: 10px;
   }
   select {
-    width: 100%;
+    width: 80%;
     padding: 0.6em;
     font-size: 1em;
     border-radius: 0.2em;
@@ -106,25 +149,59 @@
   .resultWithFlag{
     background-color: white;
     display: flex;
+    flex-direction: column;
     /* gap: 10px; */
     margin-top: 10px;
-    text-align: center;
-    align-items: center;
-    float: center;
+    padding-left: 20px;
     /* position: absolute;
     left: 50%;
     right: 50%; */
     font-size: 1.5em;
     justify-content: center;
-    padding-block: 20px;
+    padding-block: 2px;
     border-radius: 30px;
   }
 
+  .resultWithFlag .receiveStyle{
+    font-size: 15px;
+    float: top;
+    width: 50%;
+  }
+
+  .resultWithFlag .receiveAmtStyle{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    float: center;
+
+  }
+
+  .receiveAmtContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   .resultWithFlag .indiaFlag{
-    margin-left: 10px;
-    width: 40px;
-    height: 70%;
-    border-radius: 5px;
+    width: 50px;
+    height:50px;
+    border-radius: 50%;
+    float: right;
+  }
+
+  .rightOfResult{
+    display: flex;
+    justify-content: center;
+    margin-right: 20px;
+    transform: translateY(-15px);
+    
+  }
+
+  .rightOfResult p{
+    padding-left: 5px;
+    text-align: center;
+    align-items: center;
+    transform: translateY(11px);
   }
 
   .tax-styles{
@@ -137,6 +214,11 @@
     line-height: 30px;
     color: white;
   }
+
+  .tax-styles p{
+    font-weight: 500;
+  }
+
 
   .groupOfElemenst{
     justify-content: space-between;
@@ -158,6 +240,7 @@
     height: 2px;
     background-color: white;
     align-items: flex-start;
+    transform: translateY(-5px);
   }
 
   .resultWithFlag .rupeeImg{
@@ -222,8 +305,15 @@ select.round:focus {
 }
 
 #from-currency-select{
-  border-radius: 30px;
+  border-radius: 25px;
   padding: 0.7em;
+  justify-content: center;
   font-weight: bold;
+  align-items: center;
+  display: flex;
+  transform: translate(5%);
   font-size: 1.5em;
+
+  text-align-last: center; 
+  -moz-text-align-last: center;            
 }
