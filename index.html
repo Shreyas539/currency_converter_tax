@@ -4,10 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Currency Converter</title>
     <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <!-- Stylesheet-->
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -20,8 +19,11 @@
       </div>
       <label for="amount" style="color: white; font-size: 20px;">Client pays</label>
 
-      <div class="dropdowns" >
-        <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
+      <div class="dropdowns">
+        <div class="input-with-static-text"  >
+          
+          <input type="number" onkeyup="convertCurrency()" id="amount" value="100" />
+        </div>
         <select   id="from-currency-select" onchange="convertCurrency()" ></select>
         <!-- <img style="width: 20px;" src="flag.png" alt=""> -->
         <select id="to-currency-select" style="display: none;" onchange="convertCurrency()"></select>
@@ -29,22 +31,19 @@
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="assets/multiply.png" alt="">
+            <img src="/assets/multiply.png" alt="">
             <p id="dataFromApi"></p>
-            <!-- <p id="fromCu"></p> -->
-            <!-- <img src="/assets/equal.png" alt=""> -->
         </div>
-        <p id="currencyRate"></p>
+        <p style="font-weight: 300;" id="currencyRate"></p>
       </div>
 
       <p class="red-line"></p>
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="assets/equal.png" alt="">
+            <img src="/assets/equal.png" alt="">
             <p id="multiPlied"></p>
         </div>
-        
       </div>
       
 
@@ -52,31 +51,41 @@
       
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="assets/minus.png" alt="">
+            <img src="/assets/minus.png" alt="">
             <p id="TaxedAmt"></p>
         </div>
-        <p >Outworker 1.5% Fee</p>
+        <p style="font-weight: 300;">Outworker 1.5% Fee</p>
       </div>
       
 
       <div class="tax-styles">
         <div class="groupOfElemenst">
-            <img src="assets/minus.png" alt="">
-            
+            <img src="/assets/minus.png" alt="">
             <p>0</p>
         </div>
-        <p>FIRC, Forex, Hidden fee</p> 
+        <p style="font-weight: 300;">FIRC, Forex, Hidden fee</p> 
       </div>
         
       
       
       <button id="convert-button" style="display: none;">Convert</button>
-      <label for="finalAmt" style="margin-top: 10px; color: white;">You will Receive,</label>
+      
       
       <div  class="resultWithFlag">
-        <img class="rupeeImg" src="assets/rupee.png" style="width: 25px;" alt="">
-        <p id="result" ></p>
-        <img class="indiaFlag" src="assets/flag.png" alt="">
+        <div class="receiveStyle">
+          <label for="finalAmt" style="margin-top: 10px; color: black;">You'll Receive,</label>
+        </div>
+        <div class="receiveAmtContainer">
+          <div class="receiveAmtStyle">
+            <img class="rupeeImg" src="assets/rupee.png" style="width: 25px;" alt="">
+            <p id="result" ></p>
+          </div>
+          <div class="rightOfResult">
+            <img class="indiaFlag" src="/assets/flag.png" alt="">
+            <p style="font-weight: 500;" id="toCurrencyAfterFlag"></p>
+          </div>
+        </div>
+        
       </div>
     
     </div>
